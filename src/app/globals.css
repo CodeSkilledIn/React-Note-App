@@ -2,20 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Scoped to the editor */
+.tiptap {
+  @apply bg-gray-100 rounded-md focus:outline-none;
+  height: 400px;
+  width: 100%;
+  padding: 10px;
+}
+
+.bubble-menu {
+  @apply bg-gray-500 rounded-md;
+  border: 1px solid #ddd;
+  display: flex;
+  padding: 6px;
+
+  button {
+    background-color: unset;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 8px;
+    @apply rounded-md;
+
+    &:hover {
+      @apply bg-gray-600;
+    }
+
+    &.is-active {
+      background-color: var(--purple);
+
+      &:hover {
+        background-color: var(--purple-contrast);
+      }
+    }
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Floating menu */
+.floating-menu {
+  display: flex;
+  background-color: var(--gray-3);
+  padding: 0.1rem;
+  border-radius: 0.5rem;
+
+  button {
+    background-color: unset;
+    padding: 0.275rem 0.425rem;
+    border-radius: 0.3rem;
+
+    &:hover {
+      background-color: var(--gray-3);
+    }
+
+    &.is-active {
+      background-color: var(--white);
+      color: var(--purple);
+
+      &:hover {
+        color: var(--purple-contrast);
+      }
+    }
+  }
 }
